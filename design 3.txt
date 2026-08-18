@@ -1,0 +1,1 @@
+https://github.com/vedant992007-coder/Advance-Python/blob/main/Design%20Patterns%2FSingleton_Pattern.py
