@@ -1,0 +1,60 @@
+# 1. Opening, writing initial lines, and closing manually
+file = open("sample.txt", "w")[cite: 1]
+lines_to_write = ["First Line: Python\n", "Second Line: File Handling\n", "Third Line: Unit 3\n"][cite: 1]
+file.writelines(lines_to_write)[cite: 1]
+file.close()[cite: 1]
+
+# 2. Reading properties and content safely with exception handling (try...finally)
+try:
+    file = open("sample.txt", "r")[cite: 1]
+    print("Filename:", file.name)[cite: 1]
+    print("Mode:", file.mode)[cite: 1]
+    print("Is Closed?:", file.closed)[cite: 1]
+    content = file.read()[cite: 1]
+    print("\n--- Full Content Read ---\n" + content)[cite: 1]
+finally:
+    file.close()[cite: 1]
+
+# 3. Appending new data using context manager ('with' statement)
+with open("sample.txt", "a") as f:[cite: 1]
+    f.write("Fourth Line: Appended Content\n")[cite: 1]
+
+# 4. Pointer operations (seek, tell) and line-by-line reading
+with open("sample.txt", "r") as f:[cite: 1]
+    print("Initial Pointer Position:", f.tell())[cite: 1]
+    
+    # Read first line
+    print("Line 1:", f.readline().strip())[cite: 1]
+    print("Pointer Position after line 1:", f.tell())[cite: 1]
+    
+    # Reset pointer to start using seek(0)
+    f.seek(0)[cite: 1]
+    all_lines = f.readlines()[cite: 1]
+
+# 5. Extract first two lines and save to output file (Assignment 1 logic)
+line_count = len(all_lines)[cite: 1]
+first_two = all_lines[:2][cite: 1]
+
+with open("output.txt", "w") as f_out:[cite: 1]
+    f_out.writelines(first_two)[cite: 1]
+
+print("\nTotal lines in file:", line_count)[cite: 1]
+print("Extracted first two lines to output.txt successfully.")[cite: 1]
+
+Output
+
+Filename: sample.txt
+Mode: r
+Is Closed?: False
+
+--- Full Content Read ---
+First Line: Python
+Second Line: File Handling
+Third Line: Unit 3
+
+Initial Pointer Position: 0
+Line 1: First Line: Python
+Pointer Position after line 1: 20
+
+Total lines in file: 4
+Extracted first two lines to output.txt successfully.
